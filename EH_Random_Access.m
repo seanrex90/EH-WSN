@@ -12,19 +12,18 @@ buff_cap = 10 ;
 % e_arr_v = [0 1] ;
 % p_arr_v = [0 1] ;
 max_retx = 4 ;
-
-n_nodes = 5;
+n_nodes = 2;
 
 batt = randi([0 batt_cap],1,n_nodes);
 buff = zeros(1,n_nodes);
 backoff = zeros(1,n_nodes);
 retx= zeros(1,n_nodes);
 
-en_prob = 0.4;
-pkt_prob = 0.6 ; 
+en_prob = 0.6;
+pkt_prob = 0.8; 
 
-p_burst = 2;
-e_burst = 2; 
+p_burst = 5;
+e_burst = 3; 
 
 e_curr = zeros(1,n_nodes);
 p_curr = zeros(1,n_nodes);
@@ -55,7 +54,6 @@ while (time ~= simlength)
     
     time = time + 1 ;  
     
-      
     for i = 1:n_nodes % for all nodes transmitting simultaneousl
            
         % modelling packet arrival with burstiness 
@@ -231,7 +229,6 @@ while (time ~= simlength)
     end
     timer(time,1) = time;
     tx_count_c (time,1) = tx_count_t;
-    throughput  = tx_count_c/simlength;
 end
 % end
 
